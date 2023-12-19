@@ -1,0 +1,68 @@
+{
+    "posts": [
+      { "id": 1, "title": "json-server", "author": "typicode" },
+      { "id": 2, "title": "NIkhil", "author": "Salesforcetroop" }
+    ],
+    "comments": [
+      { "id": 1, "body": "some comment", "postId": 1 }
+    ],
+    "profile": { "name": "typicode" },
+    "expenses":{
+        "totalSize": 3,
+        "done": true,
+        "records": [
+          {
+            "attributes": {
+              "type": "Expense__c",
+              "url": "/services/data/v42.0/sobjects/Expense__c/a025j00000eeU2UAAU"
+            },
+            "Id": "a025j00000eeU2UAAU",
+            "Amount__c": 300,
+            "Category__c": "Medical & Healthcare",
+            "Expense_Name__c": "Tata AIG",
+            "CreatedDate": "2023-09-16T12:42:31.000+0000",
+            "Date__c": "2023-09-16",
+            "Notes__c": "health insurance for parents"
+          },
+          {
+            "attributes": {
+              "type": "Expense__c",
+              "url": "/services/data/v42.0/sobjects/Expense__c/a025j00000diNg8AAE"
+            },
+            "Id": "a025j00000diNg8AAE",
+            "Amount__c": 3000,
+            "Category__c": "Housing",
+            "Expense_Name__c": "Mortgage",
+            "CreatedDate": "2023-09-05T12:22:43.000+0000",
+            "Date__c": "2023-09-05",
+            "Notes__c": null
+          },
+          {
+            "attributes": {
+              "type": "Expense__c",
+              "url": "/services/data/v42.0/sobjects/Expense__c/a025j00000diMNXAA2"
+            },
+            "Id": "a025j00000diMNXAA2",
+            "Amount__c": 150,
+            "Category__c": "Utilities",
+            "Expense_Name__c": "Electricity",
+            "CreatedDate": "2023-09-05T12:23:36.000+0000",
+            "Date__c": "2023-09-05",
+            "Notes__c": null
+          },
+          {
+            "attributes": {
+              "type": "Expense__c",
+              "url": "/services/data/v42.0/sobjects/Expense__c/a025j00000diMNXAA2"
+            },
+            "Id": "a025j00000diMNX889",
+            "Amount__c": 250,
+            "Category__c": "Utilities",
+            "Expense_Name__c": "Waterbill",
+            "CreatedDate": "2023-09-05T12:23:36.000+0000",
+            "Date__c": "2023-09-05",
+            "Notes__c": null
+          }
+        ]
+      }
+  }

@@ -1,0 +1,10 @@
+nav{
+    background-color: #01a479;
+    color: #fff;
+    display: flex;
+    padding: 16px;
+    justify-content: space-between;
+}
+.logout-icon{
+    --slds-c-icon-color-foreground-default: #fff;
+}

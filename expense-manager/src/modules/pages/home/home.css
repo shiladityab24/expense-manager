@@ -1,0 +1,17 @@
+.wrapper{
+    background-color: #002249;
+    min-height: 100vh;
+}
+
+th{
+    background-color: #04AA6D;
+    color: #fff;
+    padding: 8px;
+}
+td{
+    padding: 8px;
+}
+
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}

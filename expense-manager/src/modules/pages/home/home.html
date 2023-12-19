@@ -1,0 +1,101 @@
+<template>
+    <template lwc:if={showSpinner}>
+        <components-loader></components-loader>
+    </template>
+    <components-navbar logged-in-user={loggedInUser} backend-url={backendUrl}></components-navbar>
+    <div class="slds-p-around_large wrapper">
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="12" padding="around-small">
+                <div class="slds-text-align_right">
+                    <lightning-button
+                    variant="brand"
+                    label="Add Expense"
+                    icon-name="utility:add"
+                    onclick={addExpense}></lightning-button>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="12" padding="around-small">
+                <lightning-card title="Expenses Details">
+                    <components-datatable records={expenseRecords}
+                    onedit={editHandler}
+                    ondelete={deleteHandler}></components-datatable>
+                </lightning-card>
+            </lightning-layout-item>
+
+            <lightning-layout-item size="12" small-device-size="12" medium-device-size="4" large-device-size="4" padding="around-small">
+                <lightning-card title="Expenses By Categories Chart View">
+                    <template lwc:if={chartData}>
+                        <components-chartbox chart-records={chartData}></components-chartbox>
+                    </template>
+                    
+                </lightning-card>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" small-device-size="12" medium-device-size="8" large-device-size="8" padding="around-small">
+                <lightning-card title="Expenses By Categories Table View">
+                    <div class="slds-p-around_large">
+                        <table>
+                            <thead>
+                                <th>No</th>
+                                <th>Category</th>
+                                <th>Total Amount</th>
+                            </thead>
+                            <tbody>
+                                <template for:each={categoryTableData} for:item="item">
+                                    <tr key={item.id}>
+                                        <td>{item.id}</td>
+                                        <td>{item.category}</td>
+                                        <td>{item.amount}</td>
+                                    </tr>
+                                </template>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </lightning-card>
+            </lightning-layout-item>
+        </lightning-layout>
+        
+        
+    </div>
+    <template lwc:if={showModal}>
+        <components-my-modal heading={modalActionLabel}>
+            <form>
+                <lightning-input type="text" label="Name" required 
+                name="Expense_Name__c" value={formData.Expense_Name__c} 
+                class="validate"
+                onchange={changeHandler}></lightning-input>
+
+                <lightning-input type="number" label="Amount" required 
+                name="Amount__c" value={formData.Amount__c} 
+                class="validate"
+                onchange={changeHandler}></lightning-input>
+
+                <lightning-input type="date" label="Expense Date" required class="validate"
+                name="Date__c" value={formData.Date__c} onchange={changeHandler}></lightning-input>
+
+                <lightning-combobox
+                name="Category__c"
+                label="Category"
+                value={formData.Category__c}
+                options={categoryOptions}
+                required
+                class="validate"
+                onchange={changeHandler} ></lightning-combobox>
+
+                <lightning-textarea 
+                name="Notes__c"
+                label="Notes" 
+                value={formData.Notes__c}
+                onkeyup={changeHandler}
+                class="validate"
+                ></lightning-textarea>
+            </form>
+            <div slot="footer">
+                <button class="slds-button slds-button_neutral" onclick={cancelHandler}>Cancel</button>
+                <button class="slds-button slds-button_brand" onclick={saveHandler}>{modalActionLabel}</button>
+            </div>
+       </components-my-modal>
+    </template>
+   
+   
+</template>
